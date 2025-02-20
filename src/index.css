@@ -1,5 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+  --main-color: #6d806a;
+}
+
+* {
+  text-decoration: none;
+  transition: 0.2s ease;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: "Roboto Slab", serif;
+}
+
+body {
+  background-color: #424641;
+  background: url(../public/pics/scissors.jpg);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+section {
+  padding: 2rem 7%;
+}
+
+.heading {
+  font-size: 4rem;
+  letter-spacing: 1.5rem;
+  color: white;
+  -webkit-text-stroke: 0.15rem black;
+  border-bottom: 0.2rem solid #fff;
+  font-weight: bold;
+}
+
+.heading span {
+  color: gray;
+  -webkit-text-stroke: 0.05rem black;
+}
+
+/* header start */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  background:linear-gradient(white,rgb(185, 185, 185));
+  padding: 0 7%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+}
+
+.header img {
+  width: 10rem;
+}
+
+.header .ustresim:hover {
+  transform: translate(100px, -10px) rotate(-20deg);
+  transition: 1s;
+}
+
+.header .navbar a {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 2rem;
+  color: black;
+  border-bottom: 0.1px solid transparent;
+}
+
+.header .navbar a:hover,
+.header .navbar a.active {
+  border-color: var(--main-color);
+  padding-bottom: 0.5rem;
+}
+
+.header .buttons button {
+  font-size: 1.6rem;
+  background: transparent;
+  margin: 1rem;
+  border: 2px solid var(--main-color);
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.header .buttons button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: var(--main-color);
+  color: white;
+}
+
+.header .buttons .girisnav{
+  color: #000000;
+}
+.header .buttons .kayıtnav{
+  color: #000000;
+}
+
+.header .buttons .girisnav:hover{
+  color: #fff;
+  text-decoration: none;
+}
+.header .buttons .kayıtnav:hover{
+  color: #fff;
+}
+
+
+/* header end */
+
+/* home start */
+.home {
+  background: url(../public/pics/scissors.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -5rem;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.home .content {
+  max-width: 60rem;
+  backdrop-filter: sepia(30%);
+  padding-left: 2rem;
+}
+
+.home h1 {
+  color: white;
+  font-size: 8rem;
+  -webkit-text-stroke: 2px #6d806a;
+}
+
+.home p {
+  color: rgb(199, 199, 199);
+  text-indent: 6rem;
+  line-height: 3rem;
+  margin-top: 4rem;
+}
+/*konum start*/
+.konum {  
+display: flex;
+justify-content: center;
+}
+.konum div p{
+  padding-left:30px;
+  padding-bottom: 30px;
+  font-family: "Roboto Slab", serif;
+  font-size: 20px;
+  color: white;
+}
+.konum .map{
+  min-width: 800px;
+  min-height: 500px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 5px solid rgb(94, 105, 98);
+}
+/*konum end*/
+
+/*login start*/
+.login-box {
+  position: absolute;
+  background: rgb(0, 0, 0,.7);
+  width: 600px;
+  padding: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  }
+
+.login-box h2{
+  margin: 0 0 50px;
+  color:white;
+  text-align: center;
+  font-size: 35px;
+}
+
+.login-box .user-box{
+  position: relative;
+}
+
+.login-box .user-box input{
+  width: 100%;
+  border-bottom: 1px solid white;
+  background:transparent;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white;
+  outline: none;
+}
+
+.login-box .user-box label{
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 20px;
+  pointer-events:none ;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~label
+{
+  top: -20px;
+  font-size: 15px;
+  color: aqua;
+}
+.login-box .user-box input:valid ~label {
+  top: -20px;
+  font-size: 15px;
+  color: rgb(0, 255, 42);
+}
+
+.login-box form .link-container{
+display: grid;
+grid-template-columns: 1fr 1fr;
+width: 100%;
+
+}
+
+.link-container button:first-child {
+  justify-self: start;
+}
+
+.link-container button:last-child {
+  justify-self: end;
+}
+
+.login-box form p{
+color: white;
+font-size:15px ;
+}
+.login-box form a{
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 10px;
+  color: aqua;
+  font-size: 20px;
+  border: 1px solid aqua;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  
+}
+
+.login-box form button:hover{
+background: rgb(3, 107, 107);
+border-color: rgb(3, 107, 107);
+color: white; 
+}
+/*login start*/
+
+
+/*prices start*/
+.prices h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.heading span {
+  color: gray;
+  -webkit-text-stroke: 0.05rem rgb(0, 0, 0);
+}
+
+.prices .pricesContainer {
+  display: flex;
+  column-gap: 10rem;
+  justify-content: center;
+}
+
+
+.prices .pricesContainer table {
+  width: 50rem;
+  background-color: #ccc;
+  padding-bottom: 5rem;
+}
+
+.prices .pricesContainer .manList .manHeading {
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+  background-color: gray;
+  padding: 2rem 0;
+  -webkit-text-stroke: 0.1rem rgb(60, 61, 60);
+}
+
+.prices .pricesContainer .manList .manBottom {
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+  line-height: 8rem;
+  text-align: center;
+}
+
+.prices .pricesContainer .manList .manBottom td {
+  width: 60rem;
+}
+/*prices start*/
+
+
+/*signup start*/
+.login-box {
+  position: absolute;
+  background: rgb(0, 0, 0,.7);
+  width: 600px;
+  padding: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  }
+
+.login-box h2{
+  margin: 0 0 50px;
+  color:white;
+  text-align: center;
+  font-size: 35px;
+}
+
+.login-box .user-box{
+  position: relative;
+}
+
+.login-box .user-box input{
+  width: 100%;
+  border-bottom: 1px solid white;
+  background:transparent;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white;
+  outline: none;
+}
+
+.login-box .user-box label{
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 20px;
+  pointer-events:none ;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~label
+{
+  top: -20px;
+  font-size: 15px;
+  color: aqua;
+}
+ .login-box .user-box input:valid ~label {
+  top: -20px;
+  font-size: 15px;
+  color: rgb(0, 255, 42);
+} 
+
+
+.login-box form .link-container{
+display: grid;
+grid-template-columns: 1fr 1fr;
+width: 100%;
+
+}
+
+.link-container button:first-child {
+  justify-self: start;
+}
+
+.link-container button:last-child {
+  justify-self: end;
+}
+
+.login-box form p{
+color: white;
+font-size:15px ;
+}
+.login-box form button{
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 10px;
+  color: aqua;
+  font-size: 20px;
+  border: 1px solid aqua;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  
+}
+
+.login-box form button:hover{
+background: rgb(3, 107, 107);
+border-color: rgb(3, 107, 107);
+color: white;
+}
+
+.login-box form .link-container .girisbtn {
+  font-size: 15px;
+  border: none;
+}
+/*signup start*/
+
+
