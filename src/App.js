@@ -6,6 +6,7 @@ import Login from "./Login";
 import Prices from "./Prices";
 import Signup from "./signup";
 import {Route,Routes} from "react-router-dom"
+import axios from "axios";
  
 function App() {
   const [users,setUsers] = useState([]);
@@ -16,7 +17,7 @@ function App() {
   const [password,setPassword] = useState("");
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
       "firstname":firstname,
@@ -26,8 +27,8 @@ function App() {
       "password":password
     }
 
-    setUsers([...users,newUser]);
-    console.log(users);
+    const response = await axios.post("http://localhost:3500/users",newUser)
+    setUsers(response.data);
   }
 
   return (

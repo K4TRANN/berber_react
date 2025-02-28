@@ -1,1 +1,20 @@
-[]
+{
+  "users": [
+    {
+      "id": "9773",
+      "firstname": "dsa",
+      "lastname": "dsa",
+      "email": "dsa@fdds",
+      "phone": "fds",
+      "password": "fsd"
+    },
+    {
+      "id": "0ed3",
+      "firstname": "Emirhan",
+      "lastname": "ÖNAL",
+      "email": "onalemirhan123@gmail.com",
+      "phone": "5519555973",
+      "password": "1234"
+    }
+  ]
+}
