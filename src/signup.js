@@ -1,7 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Signup = ({firstname,lastname,email,phone,password,setFirstname,setLastname,setEmail,setPhone,setPassword,handleSubmit}) => {
+const Signup = () => {
+  const [users,setUsers] = useState([]);
+  const [firstname,setFirstname] = useState("");
+  const [lastname,setLastname] = useState("");
+  const [email,setEmail] = useState("");
+  const [phone,setPhone] = useState("");
+  const [password,setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      "firstname":firstname,
+      "lastname":lastname,
+      "email":email,
+      "phone":phone,
+      "password":password
+    }
+
+    try {
+      const response = await axios.post("http://localhost:5000/register",newUser)
+      setUsers([...users,response.data]);
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setPhone("");
+      setPassword("");
+    // navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
   return (
     <section className="login-box">
       <h2>Kayıt OL</h2>
