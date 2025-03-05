@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "./Header";
 import Home from "./Home";
 import Konum from "./Konum";
@@ -8,8 +7,6 @@ import Signup from "./signup";
 import {Route,Routes} from "react-router-dom"
  
 function App() {
-  
-
   return (
     <div className="App">
     <Header />

@@ -134,7 +134,7 @@ section {
   min-height: 90vh;
   display: flex;
   justify-content: flex-start;
-  margin-top: -5rem;
+  margin-top: -4.7rem;
   align-items: center;
   font-size: 2rem;
 }
@@ -143,6 +143,7 @@ section {
   max-width: 60rem;
   backdrop-filter: sepia(30%);
   padding-left: 2rem;
+  box-shadow: 2px 2px #8a843a;
 }
 
 .home h1 {

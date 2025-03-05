@@ -8,8 +8,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
     const sendedUser = {
       "email":email,
       "password":password
@@ -17,6 +16,11 @@ const Login = () => {
 
     try {
       const response = await axios.post("http://localhost:5000/login",sendedUser);
+      const { accessToken } = response.data;
+
+      localStorage.setItem("accessToken", accessToken);
+      window.location.reload();
+
       setEmail("");
       setPassword("");
     // navigate("/");
@@ -37,7 +41,7 @@ const Login = () => {
           <label>Şifre</label>
         </div>
         <div className="link-container">
-          <button className="girisbtn" onClick={handleSubmit}>
+          <button className="girisbtn" onClick={handleLogin}>
             Giriş Yap
           </button>
           <p>
