@@ -10,7 +10,7 @@ const Header = () => {
   const sidebarRef = useRef(null);
 
   useEffect(() => {
-    const checkTokenExp = () => {
+    const checkTokenExp = async () => {
       const token = localStorage.getItem("accessToken");
       if (!token) {
         setCurrentUser(null);
@@ -18,10 +18,10 @@ const Header = () => {
       }
       const decoded = jwtDecode(token);
       
-      if(decoded.exp < Date.now() / 1000) {
-        console.log("TOKEN SÜRESİ DOLDU");
-        handleLogout();
-      } else {
+      if(decoded.exp < Date.now() / 1000) {        
+          console.log("TOKEN SÜRESİ DOLDU");
+          handleLogout();
+        } else {
         setCurrentUser(decoded.UserInfo);
       }
     };
