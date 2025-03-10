@@ -23,7 +23,7 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
-    // navigate("/");
+      navigate("/");
     } catch (error) {
       console.log("GİRİŞ BAŞARILISIZ: ",error.response?.data || error.message);
     }

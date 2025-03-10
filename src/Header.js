@@ -1,13 +1,33 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const [sidebar, setSidebar] = useState(false);
   const sidebarRef = useRef(null);
+
+  const handleRefresh = useCallback(async() => {
+    try {
+      const response = await axios.get("http://localhost:5000/refresh",{
+        headers:{"Content-Type":"application/json"},
+        withCredentials:true
+      });
+      if(response.status === 200) {
+        const newAccessToken = response.data.accessToken;
+        localStorage.setItem("accessToken",newAccessToken);
+      } else {
+        console.log("TOKEN SÜRESİ DOLDU");
+        handleLogout();
+      }
+    } catch (error) {
+      console.log("TOKEN GEÇERSİZ:",error.message);
+      handleLogout();
+    } 
+  },[])
 
   useEffect(() => {
     const checkTokenExp = async () => {
@@ -18,9 +38,8 @@ const Header = () => {
       }
       const decoded = jwtDecode(token);
       
-      if(decoded.exp < Date.now() / 1000) {        
-          console.log("TOKEN SÜRESİ DOLDU");
-          handleLogout();
+      if(decoded.exp < Date.now() / 1000) {
+          await handleRefresh();        
         } else {
         setCurrentUser(decoded.UserInfo);
       }
@@ -31,7 +50,7 @@ const Header = () => {
     const interval = setInterval(checkTokenExp, 10000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [handleRefresh]);
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -97,6 +116,7 @@ const Header = () => {
             </Link>
           </button>
           <button onClick={handleLogout}>Çıkışş yapıyorum</button>
+          <button onClick={handleRefresh}>REFRESH</button>
         </div>
       ) : (
         <div className="buttons">
