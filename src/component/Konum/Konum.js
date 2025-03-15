@@ -1,4 +1,4 @@
-import React from "react";
+import "./Konum.css";
 
 const Konum = () => {
   return (

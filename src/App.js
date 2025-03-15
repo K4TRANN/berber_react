@@ -1,9 +1,11 @@
-import Header from "./Header";
-import Home from "./Home";
-import Konum from "./Konum";
-import Login from "./Login";
-import Prices from "./Prices";
-import Signup from "./signup";
+import Header from "./component/Header/Header";
+import Home from "./component/Home/Home";
+import Konum from "./component/Konum/Konum";
+import Login from "./component/Login/Login";
+import Prices from "./component/Prices/Prices";
+import Signup from "./component/Signup/signup";
+import Date from "./component/Date/Date";
+import ProtectedRoute from "./ProtectedRoute";
 import {Route,Routes} from "react-router-dom"
  
 function App() {
@@ -16,6 +18,9 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/prices" element={<Prices />}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/date" element={<Date />}></Route>
+        </Route>
       </Routes>    
     </div>
   );

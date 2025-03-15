@@ -1,0 +1,18 @@
+.konum {  
+  display: flex;
+  justify-content: center;
+  }
+  .konum div p{
+    padding-left:30px;
+    padding-bottom: 30px;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    color: white;
+  }
+  .konum .map{
+    min-width: 800px;
+    min-height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 5px solid rgb(94, 105, 98);
+  }

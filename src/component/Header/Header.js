@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import "./Header.css"
+import React, { useEffect, useState, useRef,useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
-import axios from "axios";
+import axios from "../../api/axiosInstance"
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -109,18 +110,20 @@ const Header = () => {
 
       {currentUser ? (
         <div className="buttons">
-          <button>
             <Link to="profile">
+            <button>
               {" "}
               {currentUser.firstname} {currentUser.lastname}
+            </button>
             </Link>
-          </button>
+          <Link to="date">
+            <button id="randevuBtn">Randevu Al</button>
+          </Link>
           <button onClick={handleLogout}>Çıkışş yapıyorum</button>
-          <button onClick={handleRefresh}>REFRESH</button>
         </div>
       ) : (
         <div className="buttons">
-          <Link to="randevu">
+          <Link to="date">
             <button id="randevuBtn">Randevu Al</button>
           </Link>
           {currentUser ? (

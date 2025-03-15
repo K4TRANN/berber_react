@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import "./Login.css"
+import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../api/axiosInstance";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/login",sendedUser,{withCredentials:true});
+      const response = await axios.post("/login",sendedUser,{withCredentials:true});
       const { accessToken } = response.data;
 
       localStorage.setItem("accessToken", accessToken);
