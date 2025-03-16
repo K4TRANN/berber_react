@@ -113,7 +113,7 @@ const Header = () => {
             <Link to="profile">
             <button>
               {" "}
-              {currentUser.firstname} {currentUser.lastname}
+              {currentUser.firstname}
             </button>
             </Link>
           <Link to="date">

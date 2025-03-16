@@ -20,11 +20,11 @@ const Login = () => {
       const { accessToken } = response.data;
 
       localStorage.setItem("accessToken", accessToken);
+      navigate("/");
       window.location.reload();
 
       setEmail("");
       setPassword("");
-      navigate("/");
     } catch (error) {
       console.log("GİRİŞ BAŞARILISIZ: ",error.response?.data || error.message);
     }

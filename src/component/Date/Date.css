@@ -2,7 +2,46 @@
   margin: 0;
 }
 
-.dateForm {
+.datePlat {
+  background-color: rgba(163, 163, 163, 0.4);
+  border: 2px solid black;
+  margin:1rem 2rem;
+  height: 100%;
+}
+
+.dateHeader {
+  display: flex;
+  align-items: center;
+}
+
+.dateButton {
+  color: white;
+  border: 1px solid transparent;
+  width: 100%;
+  max-width: 25rem;
+  height: 3.5rem;
+  background-color: green;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px black;
+}
+.dateButton:hover {
+  border-color: black;
+}
+.dateButton:focus {
+  transform: translate3d(2px)
+}
+
+.dateWarning {
+  font-size: 2.5rem;
+  color:rgb(116, 15, 15);
+}
+.dateIcon {
+  font-size: 4rem;
+  margin-left: 4rem;
+  color:rgb(116, 15, 15) ;
+}
+
+#dateForm {
   max-width: 250px;
   width: 100%;
   height: 350px ;
@@ -15,6 +54,7 @@
   border-radius: 1rem;
   border:0.1rem solid #6d806a;
   overflow: auto;
+  margin-top:1rem ;
 }
 
 .dateCalendar {
@@ -23,7 +63,6 @@
 }
 p {
   font-size: 2rem;
-  
 }
 .seans {
   margin: 1rem auto 1rem 3rem;
@@ -34,9 +73,4 @@ p {
   margin-left: 1rem;
 }
 
-.dateButton {
-  position:sticky;
-  bottom: 0;
-  margin-top: auto;
-  margin-bottom: 1rem;
-}
+

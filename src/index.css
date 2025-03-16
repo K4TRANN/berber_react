@@ -22,7 +22,7 @@ body {
 
 body {
   background-color: #424641;
-  background: url(../public/pics/scissors.jpg);
+  background: url(http://localhost:3000/pics/scissors.jpg);
 }
 
 html {
