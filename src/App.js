@@ -4,7 +4,7 @@ import Konum from "./component/Konum/Konum";
 import Login from "./component/Login/Login";
 import Prices from "./component/Prices/Prices";
 import Signup from "./component/Signup/signup";
-import Date from "./component/Date/Date";
+import Date from "./component/Date/DateComponent";
 import ProtectedRoute from "./ProtectedRoute";
 import {Route,Routes} from "react-router-dom"
  

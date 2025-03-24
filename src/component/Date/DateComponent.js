@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
-import "./Date.css"
+import "./DateComponent.css"
 import axiosInstance from "../../api/axiosInstance"
 import { RiAlarmWarningFill } from "react-icons/ri";
 
-
-const Date = () => {
+const DateComponent = () => {
   const [dates,setDates] = useState([]);
   const [selected,setSelected] = useState("");
+  
+  const now = new Date();
+  const today = now.toLocaleDateString();
 
   useEffect(() => {
     const fetchDates = async() => {
@@ -39,9 +41,9 @@ const Date = () => {
         <p className="dateWarning">Randevu saatinden en geç 1 saat öncesine kadar randevunuzu iptal edebilirsiniz!</p>
       </div>
       
-      <div>
-        <form id="dateForm" onSubmit={handleSubmit}>
-          <h1 className="dateCalendar">11/3/2025</h1>
+      <div className="seanslar">
+        <form className="dateForm" onSubmit={handleSubmit}>
+          <h1 className="dateCalendar">{today}</h1>
           <p className="dateDay">Salı</p>
           {dates.map(date => (
             <div className="seans" key={date.time}>
@@ -49,12 +51,20 @@ const Date = () => {
               <label className="dateLabel" htmlFor={`options${date.time}`}>{date.time}</label>
             </div>
           ))}
-          
-          
+        </form>
+        <form className="dateForm" onSubmit={handleSubmit}>
+          <h1 className="dateCalendar">{today}</h1>
+          <p className="dateDay">Salı</p>
+          {dates.map(date => (
+            <div className="seans" key={date.time}>
+              <input disabled={date.reserved} type="radio" name="options" id={`options${date.time}`} value={date.time} onChange={(e) => setSelected(e.target.value)} />
+              <label className="dateLabel" htmlFor={`options${date.time}`}>{date.time}</label>
+            </div>
+          ))}
         </form>
       </div>
     </section>
   )
 }
 
-export default Date
+export default DateComponent
