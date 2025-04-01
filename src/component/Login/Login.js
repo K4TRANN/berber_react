@@ -7,6 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [error,setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,11 +26,24 @@ const Login = () => {
 
       setEmail("");
       setPassword("");
+      setError("");
     } catch (error) {
       console.log("GİRİŞ BAŞARILISIZ: ",error.response?.data || error.message);
+      if(error.status === 401) {
+        setPassword("");
+        setError("ŞİFRE YANLIŞ!")
+      } else if(error.status===404) {
+        setEmail("");
+        setPassword("");
+        setError("EMAIL KAYDI YOK!")
+      }
     }
   }
   return (
+    <>
+    {error ? (
+      <p style={{color:"red"}}>{error}</p>
+    ): null}
     <section className="login-box">
       <h2>Giriş Yap</h2>
       <form onSubmit={handleSubmit}>
@@ -51,6 +65,7 @@ const Login = () => {
         </div>
       </form>
     </section>
+    </>
   );
 };
 

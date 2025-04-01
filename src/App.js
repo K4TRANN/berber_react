@@ -5,6 +5,7 @@ import Login from "./component/Login/Login";
 import Prices from "./component/Prices/Prices";
 import Signup from "./component/Signup/signup";
 import Date from "./component/Date/DateComponent";
+import Profile from "./component/Profile/Profile";
 import ProtectedRoute from "./ProtectedRoute";
 import {Route,Routes} from "react-router-dom"
  
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<Signup/>}/>
         <Route element={<ProtectedRoute />}>
           <Route path="/date" element={<Date />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Route>
       </Routes>    
     </div>

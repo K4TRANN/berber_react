@@ -100,12 +100,22 @@ const Header = () => {
         <Link to="randevu" className="randevu570">
           Randevu Al
         </Link>
-        <Link to="login" className="login570">
-          Giriş Yap
-        </Link>
-        <Link to="signup" className="signup570">
-          Kayıt Ol
-        </Link>
+        {currentUser ? (
+          <>
+          <Link to="profile">
+              {" "}
+              {currentUser.firstname}
+            </Link>
+          <Link to="date">Randevu Al</Link>
+          <Link onClick={handleLogout}>Çıkış Yap</Link>
+          </>
+        ): (
+          <>
+            <Link to="login"> Giriş Yap</Link>
+            <Link to="signup">Kayıt Ol</Link>
+          </>
+        )}
+        
       </nav>
 
       {currentUser ? (
@@ -119,7 +129,7 @@ const Header = () => {
           <Link to="date">
             <button id="randevuBtn">Randevu Al</button>
           </Link>
-          <button onClick={handleLogout}>Çıkışş yapıyorum</button>
+          <button onClick={handleLogout}>Çıkış Yap</button>
         </div>
       ) : (
         <div className="buttons">
