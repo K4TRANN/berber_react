@@ -1,6 +1,6 @@
 import "./Header.css"
 import React, { useEffect, useState, useRef,useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
 import axios from "../../api/axiosInstance"
@@ -83,36 +83,32 @@ const Header = () => {
       </Link>
 
       <nav className="navbar">
-        <Link to="/" className="active">
-          Ana Sayfa
-        </Link>
-        <Link to="prices">Ücretler</Link>
-        <Link to="hakkında">Hakkında</Link>
-        <Link to="konum">Konum</Link>
+        <NavLink to="/" className={({isActive}) => isActive ? "active" : ""}>Ana Sayfa</NavLink>
+        <NavLink to="prices" className={({isActive}) => isActive ? "active" : ""}>Ücretler</NavLink>
+        <NavLink to="hakkında" className={({isActive}) => isActive ? "active" : ""}>Hakkında</NavLink>
+        <NavLink to="konum" className={({isActive}) => isActive ? "active" : ""}>Konum</NavLink>
       </nav>
       <nav ref={sidebarRef} className={`sidebar ${sidebar ? "active" : ""}`}>
-        <Link to="/" className="active">
-          Ana Sayfa
-        </Link>
-        <Link to="prices">Ücretler</Link>
-        <Link to="hakkında">Hakkında</Link>
-        <Link to="konum">Konum</Link>
-        <Link to="randevu" className="randevu570">
+        <NavLink to="/" className={({isActive}) => isActive ? "active" : ""}>Ana Sayfa</NavLink>
+        <NavLink to="prices" className={({isActive}) => isActive ? "active" : ""}>Ücretler</NavLink>
+        <NavLink to="hakkında" className={({isActive}) => isActive ? "active" : ""}>Hakkında</NavLink>
+        <NavLink to="konum" className={({isActive}) => isActive ? "active" : ""}>Konum</NavLink>
+        <NavLink to="randevu"  className={({isActive}) => isActive ? "active" : ""}>
           Randevu Al
-        </Link>
+        </NavLink>
         {currentUser ? (
           <>
-          <Link to="profile">
+          <NavLink to="profile" className={({isActive}) => isActive ? "active" : ""}>
               {" "}
               {currentUser.firstname}
-            </Link>
-          <Link to="date">Randevu Al</Link>
-          <Link onClick={handleLogout}>Çıkış Yap</Link>
+            </NavLink>
+          <NavLink to="date">Randevu Al</NavLink>
+          <NavLink onClick={handleLogout}>Çıkış Yap</NavLink>
           </>
         ): (
           <>
-            <Link to="login"> Giriş Yap</Link>
-            <Link to="signup">Kayıt Ol</Link>
+            <NavLink to="login"> Giriş Yap</NavLink>
+            <NavLink to="signup">Kayıt Ol</NavLink>
           </>
         )}
         

@@ -3,9 +3,6 @@ import "./Prices.css";
 const Prices = () => {
   return (
     <section className="prices">
-      <h1 className="heading">
-        ÜCRETLER <span>PRICES</span>{" "}
-      </h1>
       <div className="pricesContainer">
         <div className="manList">
           <div className="manHeading">

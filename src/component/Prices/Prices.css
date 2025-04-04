@@ -3,11 +3,6 @@
   justify-content: center;
 }
 
-.heading span {
-  color: gray;
-  -webkit-text-stroke: 0.05rem rgb(0, 0, 0);
-}
-
 .prices .pricesContainer {
   display: flex;
   column-gap: 10rem;

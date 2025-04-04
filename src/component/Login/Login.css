@@ -44,8 +44,13 @@
   transition: .5s;
 }
 
-.login-box .user-box input:focus ~label
-{
+.login-box .user-box input:focus ~label{
+  top: -20px;
+  font-size: 15px;
+  color: aqua;
+}
+
+.login-box .user-box .floatLabel{
   top: -20px;
   font-size: 15px;
   color: aqua;
@@ -71,6 +76,9 @@ width: 100%;
   justify-self: end;
 }
 
+.login-box form button{
+  background: transparent;
+}
 .login-box form p{
 color: white;
 font-size:15px ;
@@ -87,8 +95,26 @@ font-size:15px ;
   
 }
 
-.login-box form button:hover{
+.login-box form a:hover{
 background: rgb(3, 107, 107);
 border-color: rgb(3, 107, 107);
 color: white; 
+}
+
+.login-box form .link-container .girisbtn  {
+  background: transparent;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 10px;
+  color: aqua;
+  font-size: 20px;
+  border: 1px solid aqua;
+  border-radius: 20px;
+  letter-spacing: 2px;
+}
+.login-box form .link-container .girisbtn:hover  {
+  background: rgb(3, 107, 107);
+  border-color: rgb(3, 107, 107);
+  color: white; 
+  cursor: pointer;
 }

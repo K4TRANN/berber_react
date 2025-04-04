@@ -9,6 +9,8 @@ const Signup = () => {
   const [email,setEmail] = useState("");
   const [phone,setPhone] = useState("");
   const [password,setPassword] = useState("");
+  const [hasValueEmail,setHasValueEmail] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const Signup = () => {
       setEmail("");
       setPhone("");
       setPassword("");
-    // navigate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -50,8 +52,8 @@ const Signup = () => {
           <label>Soyisim</label>
         </div>
         <div className="user-box">
-          <input type="email" required value={email} onChange={e => setEmail(e.target.value)}/>
-          <label>E-posta</label>
+          <input type="email" required value={email} onChange={e => setEmail(e.target.value)} onFocus={() => setHasValueEmail(true)} onBlur={(e) => setHasValueEmail(e.target.value !== "")}/>
+          <label className={hasValueEmail ? "floatLabel" : ""}>E-posta</label>
         </div>
         <div className="user-box">
           <input className="inputPhone" type="text" required id="inputPhone" value={phone} onChange={e => setPhone(e.target.value)}/>
@@ -66,15 +68,10 @@ const Signup = () => {
           <label>Şifre Doğrulama</label>
         </div> */}
         <div className="link-container">
-          <button className="kayıtbtn" type="submit">
+          <button className="girisbtn" type="submit">
             Kayıt ol
           </button>
-          <p>
-            Hesabın var mı?{" "}
-            <Link className="girisbtn" to="/login">
-              Giriş yap
-            </Link>
-          </p>
+          <p> Hesabın var mı?{" "}<button><Link className="girisbtn" to="/login">Giriş yap</Link> </button></p>
         </div>
       </form>
     </section>

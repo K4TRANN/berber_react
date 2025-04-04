@@ -1,6 +1,6 @@
 import "./Login.css"
 import { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useAsyncError,useNavigate } from "react-router-dom";
 import axios from "../../api/axiosInstance";
 
 const Login = () => {
@@ -8,6 +8,7 @@ const Login = () => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [error,setError] = useState("");
+  const [hasValueEmail,setHasValueEmail] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,8 +49,8 @@ const Login = () => {
       <h2>Giriş Yap</h2>
       <form onSubmit={handleSubmit}>
         <div className="user-box">
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-          <label>E-posta</label>
+          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setHasValueEmail(true)} onBlur={(e) => setHasValueEmail(e.target.value !== "")} />
+          <label className={hasValueEmail ? "floatLabel" : ""}>E-posta</label>
         </div>
         <div className="user-box">
           <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -59,9 +60,9 @@ const Login = () => {
           <button className="girisbtn">
             Giriş Yap
           </button>
-          <p>
-            Hesabın yok mu? <Link to="/signup">Kayıt Ol</Link>
-          </p>
+            <p>
+              Hesabın yok mu? <button><Link to="/signup">Kayıt Ol</Link></button>
+            </p>
         </div>
       </form>
     </section>

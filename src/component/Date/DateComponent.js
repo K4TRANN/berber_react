@@ -44,18 +44,24 @@ const DateComponent = () => {
       </div>
       
         <form id="dateForm" onSubmit={handleSubmit}>
-          {days.map((day,i) => (
+          {days
+          .map((day,i) => (
           <div className="formPlat">
           <h1 className="dateCalendar">{(new Date(now.getTime() + i * 24 * 60 * 60 * 1000)).toLocaleDateString()}</h1>
           <p className="dateDay">{days[(now.getDay() + i) % 7]}</p>
-          {dates
-          .filter(date => new Date(now.getTime() + i*24*60*60*1000).toLocaleDateString("en-CA") === date.date)
-          .map(date => (
+          {dates ? (
+            dates
+            .filter(date => new Date(now.getTime() + i*24*60*60*1000).toLocaleDateString("en-CA") === date.date && date.avaliable === true)
+            .map(date => (
             <div className="seans" key={date.startTime}>
               <input disabled={date.avaliable ? date.reserved : true} type="radio" name="options" id={`options${date.startTime}`} value={date.startTime} onChange={(e) => setSelected(e.target.value)} />
               <label className="dateLabel" style={{color: date?.reserved ? "gray" : "black"}} htmlFor={`options${date.startTime}`}>{date.startHour} - {date.endHour}</label>
             </div>
-          ))} 
+          ))
+          ): (
+            <p>Randevu yok</p>
+          )
+          } 
           </div>       
         ))}
         </form> 

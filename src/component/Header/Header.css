@@ -127,6 +127,8 @@
     padding: 1rem;
     padding-bottom: 40px;
     color: black;
+    border-bottom:1px solid #737473;
+    border-left:3px solid #737473;
   }
   .sidebar a:hover {
     background-color: rgb(129, 128, 128);
