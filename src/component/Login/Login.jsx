@@ -1,6 +1,6 @@
 import "./Login.css"
 import { useState } from "react";
-import { Link,useAsyncError,useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "../../api/axiosInstance";
 
 const Login = () => {
